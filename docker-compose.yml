@@ -20,3 +20,15 @@ services:
       - '8080:80'
     depends_on:
       - php
+
+  yarn:
+    container_name: rss_feed_node
+    image: node:12
+    working_dir: /www/front
+    command: "yarn start"
+    ports:
+      - 3000:3000
+    volumes:
+      - ./front:/www/front
+    environment:
+      API_URL: ${API_URL:-http://127.0.0.1:9000/api}
