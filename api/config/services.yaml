@@ -4,6 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    rss.feed.url: https://www.theregister.co.uk/software/headlines.atom
+    excluded.words: ['the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'I', 'it', 'for', 'not', 'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from', 'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would', 'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which', 'go', 'me']
 
 services:
     # default configuration for services in *this* file
@@ -25,3 +27,28 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    FeedIo\Adapter\ClientInterface:
+        alias: FeedIo\Adapter\Guzzle\Client
+
+    FeedIo\Adapter\Guzzle\Client:
+        autowire: true
+        autoconfigure: true
+
+    GuzzleHttp\ClientInterface:
+        alias: GuzzleHttp\Client
+
+    GuzzleHttp\Client:
+        autowire: true
+        autoconfigure: true
+
+    FeedIo\FeedIo:
+        autowire: true
+        autoconfigure: true
+
+    App\Service\FrequentWords\FrequentWordsCalculator:
+        arguments:
+            - '%excluded.words%'
+
+    App\Service\FrequentWords\FrequentWordsService:
+        alias: App\Service\FrequentWords\FrequentWordsServiceImpl

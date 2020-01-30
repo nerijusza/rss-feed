@@ -1,5 +1,23 @@
 {
+    "debril/feed-io": {
+        "version": "v4.5.2"
+    },
+    "guzzlehttp/guzzle": {
+        "version": "6.5.2"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.6.1"
+    },
     "php": {
         "version": "7.4"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
     }
 }
