@@ -6,6 +6,7 @@ RUN apt-get install --assume-yes git
 RUN apt-get install --assume-yes libzip-dev
 RUN docker-php-ext-install zip
 RUN docker-php-ext-enable apcu
+RUN docker-php-ext-install pdo pdo_mysql
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /usr/src/app

@@ -27,8 +27,26 @@ services:
     working_dir: /www/front
     command: "yarn start"
     ports:
-      - 3000:3000
+      - 3001:3000
     volumes:
       - ./front:/www/front
     environment:
       API_URL: ${API_URL:-http://127.0.0.1:9000/api}
+
+  db:
+    image: mysql
+    container_name: rss_feed_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: some_very_hard_password
+      MYSQL_USER: rss
+      MYSQL_PASSWORD: feed
+      MYSQL_DATABASE: rss_feed
+    ports:
+      - "4000:3306"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080

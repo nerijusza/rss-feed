@@ -3,15 +3,34 @@ declare(strict_types=1);
 
 namespace App\Test\Controller;
 
+use App\DataFixtures\AppFixtures;
+use App\Tests\Controller\XmlHttpRequestTrait;
+use Liip\TestFixturesBundle\Test\FixturesTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class FrequentWordsControllerTest extends WebTestCase
 {
+    use FixturesTrait;
+    use XmlHttpRequestTrait;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->loadFixtures([AppFixtures::class]);
+    }
+
+    function testEndpointWithoutTokenShouldNotBeAvailable(): void
+    {
+        $client = self::createClient();
+        $this->makeRequestWithoutToken($client,'GET', '/api/frequentWords');
+        $this->assertEquals(401, $client->getResponse()->getStatusCode());
+    }
+
     function testFrequentWordsEndpoint(): void
     {
         $client = self::createClient();
 
-        $client->xmlHttpRequest('GET', '/api/frequentWords');
+        $this->makeRequestWithToken($client,'GET', '/api/frequentWords');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 

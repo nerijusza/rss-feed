@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FrequentWordsController extends AbstractController
 {
     /**
-     * @Route("/api/frequentWords")
+     * @Route("/api/frequentWords", methods={"GET"})
      */
     public function frequentWords(FrequentWordsService $frequentWordsService, ParameterBagInterface $parameterBag)
     {

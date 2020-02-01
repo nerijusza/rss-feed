@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RssFeedController extends AbstractController
 {
     /**
-     * @Route("/api/rss")
+     * @Route("/api/rss", methods={"GET"})
      */
     public function rss(ClientInterface $client, ParameterBagInterface $parameterBag)
     {
