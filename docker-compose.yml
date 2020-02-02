@@ -50,3 +50,16 @@ services:
     restart: always
     ports:
       - 8081:8080
+
+  init:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    command: "sh /init/docker/init.sh"
+    volumes:
+      - './:/init'
+      - './api/:/usr/src/app'
+    depends_on:
+      - db
+      - php
+      - nginx
