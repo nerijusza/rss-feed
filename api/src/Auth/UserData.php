@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class UserData {
     /**
      * @Assert\Email()
+     * @Assert\NotBlank()
      */
     private string $email;
 
