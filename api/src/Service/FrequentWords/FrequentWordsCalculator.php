@@ -21,6 +21,8 @@ class FrequentWordsCalculator
             },
             $excludedWords
         );
+
+        $this->excludedWords[] = 's'; // for words like "Oracle's"
     }
 
     /**
@@ -59,6 +61,7 @@ class FrequentWordsCalculator
     private function cleanUp(string $text): string
     {
         $text = strip_tags(strtolower($text));
+        $text = preg_replace('/n\'t/', ' not', $text);
         $text = preg_replace('/[^a-z]/', ' ', $text);
         $text = preg_replace('/\s{2,}/', ' ', $text);
 

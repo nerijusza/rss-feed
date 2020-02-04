@@ -15,8 +15,8 @@ https://en.wikipedia.org/wiki/Most_common_words_in_English)
 * [Docker-compose >= 1.21.x](https://docs.docker.com/compose/install/)
 
 **Run the app**
-* Run command to setup and launch app `docker-compose up --build`
-* Open url: http://127.0.0.1:3001/
+* Run command to setup and launch app `CURRENT_UID=$(id -u):$(id -g) docker-compose up --build`
+* Open url: http://127.0.0.1:3000/
 # Implementation notes
 * Fully dockerized environment
 * Frontend implemented as SPA using React
@@ -26,7 +26,6 @@ https://en.wikipedia.org/wiki/Most_common_words_in_English)
 * Add tests (Symfony tested) to React application
 * Login/registration form validation in React (implemented in Symfony)
 * Use interfaces in React application
-* Cancel not finished AJAX email validation requests if new one is launched
 * Add global Exception handler in Symfony to return friendly JSON response
 # API (Symfony)
 ## Testing

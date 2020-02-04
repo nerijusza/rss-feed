@@ -37,6 +37,10 @@ class FrequentWordsCalculatorTest extends TestCase
             <li>second</li>
             <li>third</li>
 TEXT;
+        $textWithLetterS = <<<TEXT
+today's yesterday's Oracle's Oracle's Weren't Weren't Weren't
+TEXT;
+;
 
         return [
             '#1' => [[], '', 3, []],
@@ -68,6 +72,17 @@ TEXT;
                 [
                     new FrequentWord('good', 2),
                     new FrequentWord('text', 1),
+                ]
+            ],
+            '#6' => [
+                ['yesterday'],
+                $textWithLetterS,
+                5,
+                [
+                    new FrequentWord('were', 3),
+                    new FrequentWord('not', 3),
+                    new FrequentWord('oracle', 2),
+                    new FrequentWord('today', 1),
                 ]
             ],
         ];
