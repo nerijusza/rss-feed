@@ -45,20 +45,20 @@ class RegisterPage extends React.Component {
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
         if (e.target.name === 'email') this.validateEmail(e.target.value);
-    }
+    };
 
     validateEmail = (email) => {
-        if (email) {
+        const emailValid = email ? !!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) : false;
+
+        this.setState({emailNotValid: !!(email && !emailValid)});
+
+        if (emailValid) {
             ApiService.checkEmail(email)
                 .then(valid => {
-                    this.setState({emailNotValid: !valid});
-                }).catch(() => {
-                    this.setState({emailNotValid: true});
+                    if (!valid) this.setState({error: 'Email ' + email + ' already registered, please login'});
                 });
-        } else {
-            this.setState({emailNotValid: false});
         }
-    }
+    };
 
     render() {
         const success = this.state.success ? <RegistrationSuccess successMessage={this.state.success} /> : '';

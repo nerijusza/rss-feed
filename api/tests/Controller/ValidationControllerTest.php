@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Test\Controller;
 
+use App\DataFixtures\AppFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ValidationControllerTest extends WebTestCase
@@ -26,9 +27,10 @@ class ValidationControllerTest extends WebTestCase
     public function dataProvider(): array
     {
         return [
-            '#valid'     => ['real.valid@email.com', true],
-            '#Notvalid1' => ['wrong@email', false],
-            '#Notvalid2' => ['3245', false],
+            '#valid'         => ['real.valid@email.com', true],
+            '#Notvalid1'     => ['wrong@email', false],
+            '#Notvalid2'     => ['3245', false],
+            '#ExistingEmail' => [AppFixtures::EXISTING_USER_EMAIL, false],
         ];
     }
 }

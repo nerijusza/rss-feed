@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,9 +13,11 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class ValidationController extends AbstractController
 {
     private ValidatorInterface $validator;
+    private UserRepository $userRepository;
 
-    public function __construct(ValidatorInterface $validator) {
+    public function __construct(ValidatorInterface $validator, UserRepository $userRepository) {
         $this->validator = $validator;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -24,8 +27,14 @@ class ValidationController extends AbstractController
      */
     public function validate(string $email):JsonResponse
     {
-        return new JsonResponse([
-            'valid' => !$this->validator->validate($email, new Assert\Email())->count()
-        ]);
+        if ($this->validator->validate($email, new Assert\Email())->count()) {
+            return new JsonResponse(['valid' => false]);
+        }
+
+        if ($this->userRepository->findByEmail($email)) {
+            return new JsonResponse(['valid' => false]);
+        }
+
+        return new JsonResponse(['valid' => true]);
     }
 }

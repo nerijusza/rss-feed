@@ -79,7 +79,7 @@ class AuthController extends AbstractController
     private function checkForExistingEmail(string $email): void
     {
         if ($this->userRepository->findByEmail($email)) {
-            throw new \InvalidArgumentException('Email already registered, please login');
+            throw new \InvalidArgumentException(sprintf('Email %s already registered, please login', $email));
         }
     }
 }
