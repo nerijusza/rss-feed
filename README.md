@@ -16,6 +16,7 @@ https://en.wikipedia.org/wiki/Most_common_words_in_English)
 
 **Run the app**
 * Run command to setup and launch app `CURRENT_UID=$(id -u):$(id -g) docker-compose up --build`
+* Wait for applications to load. Can take a while to download npm dependencies (not properly displayed in logs)
 * Open url: http://127.0.0.1:3000/
 # Implementation notes
 * Fully dockerized environment
