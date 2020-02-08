@@ -9,7 +9,7 @@ import {Redirect} from "react-router-dom";
 
 class RssPage extends React.Component {
     render() {
-        if (!ApiService.isAuthorized()) return <Redirect to="/" />
+        if (!ApiService.isAuthorized()) return <Redirect to="/" />;
 
         return (
             <React.Fragment>
