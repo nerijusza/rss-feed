@@ -25,8 +25,6 @@ https://en.wikipedia.org/wiki/Most_common_words_in_English)
 * Auth implemented using [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token)
 # Possible future improvements
 * Add tests (Symfony tested) to React application
-* Login/registration form validation in React (implemented in Symfony)
-* Use interfaces in React application
 * Add global Exception handler in Symfony to return friendly JSON response
 # API (Symfony)
 ## Testing
