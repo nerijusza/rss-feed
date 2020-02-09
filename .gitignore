@@ -1,1 +1,5 @@
 .idea
+/front/cypress/plugins/
+/front/cypress/support/
+/front/cypress/videos/
+/api/cache.file

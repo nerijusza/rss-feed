@@ -128,10 +128,10 @@ export default class UserForm extends React.Component<Props, State> {
                     <Error message={this.state.errorMessage}/>
                     <ProgressBar visible={this.state.inProgress}/>
                     <form>
-                        <TextField error={this.state.emailNotValid} variant="outlined" type="text" label="EMAIL" fullWidth margin="normal" name="email" value={this.state.email} onChange={this.onEmailChange}/>
-                        <TextField error={this.state.passwordNotValid} variant="outlined" type="password" label="PASSWORD" fullWidth margin="normal" name="password" value={this.state.password} onChange={this.onPasswordChange}/>
+                        <TextField error={this.state.emailNotValid} variant="outlined" type="text" label="EMAIL" fullWidth margin="normal" name="email" value={this.state.email} onChange={this.onEmailChange} data-cy="email" />
+                        <TextField error={this.state.passwordNotValid} variant="outlined" type="password" label="PASSWORD" fullWidth margin="normal" name="password" value={this.state.password} onChange={this.onPasswordChange} data-cy="password" />
                         <Box>
-                            <Button disabled={this.state.inProgress} variant="contained" color="secondary" onClick={this.onFormAction}>{this.props.title}</Button>
+                            <Button disabled={this.state.inProgress} variant="contained" color="secondary" onClick={this.onFormAction} data-cy="auth-button">{this.props.title}</Button>
                             <br />
                             {this.props.maybeLoginOrRegister}
                         </Box>

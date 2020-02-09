@@ -45,7 +45,7 @@ class RssFeed extends React.Component<{}, State> {
 
 function RssEntry(props) {
     return (
-        <Box key={props.entry.title} py={3}>
+        <Box key={props.entry.title} py={3} data-cy="rss-entry">
             <Paper elevation={3}>
                 <Box p={1}>
                     <h3>{props.entry.title}</h3>

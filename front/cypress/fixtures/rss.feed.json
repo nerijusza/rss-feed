@@ -1,0 +1,68 @@
+{
+  "feed": {
+    "id": "tag:theregister.co.uk,2005:feed/theregister.co.uk/software/",
+    "title": "The Register - Software",
+    "link": [
+      {
+        "@attributes": {
+          "rel": "self",
+          "type": "application/atom+xml",
+          "href": "https://www.theregister.co.uk/software/headlines.atom"
+        }
+      },
+      {
+        "@attributes": {
+          "rel": "alternate",
+          "type": "text/html",
+          "href": "https://www.theregister.co.uk/software/"
+        }
+      }
+    ],
+    "rights": "Copyright © 2020, Situation Publishing",
+    "author": {
+      "name": "Team Register",
+      "email": "webmaster@theregister.co.uk",
+      "uri": "https://www.theregister.co.uk/odds/about/contact/"
+    },
+    "icon": "https://www.theregister.co.uk/Design/graphics/icons/favicon.png",
+    "subtitle": "Biting the hand that feeds IT — sci/tech news and views for the world",
+    "logo": "https://www.theregister.co.uk/Design/graphics/Reg_default/The_Register_r.png",
+    "updated": "2020-02-07T17:15:07Z",
+    "entry": [
+      {
+        "id": "tag:theregister.co.uk,2005:story206909",
+        "updated": "2020-02-07T17:15:07Z",
+        "author": {
+          "name": "Gareth Corfield",
+          "uri": "https://search.theregister.co.uk/?author=Gareth%20Corfield"
+        },
+        "link": {
+          "@attributes": {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://go.theregister.co.uk/feed/www.theregister.co.uk/2020/02/07/ex_autonomy_cfo_metoo_allegations/"
+          }
+        },
+        "title": "Ex-Autonomy CFO Sushovan Hussain was accused of sexual misconduct against Darktrace staff – report",
+        "summary": "<h4>Security biz says it was a long time ago and he didn't technically work for them anyway</h4> <p>Former Autonomy chief financial officer Sushovan Hussain was alleged to be involved in two #MeToo-style incidents while he was working for Mike Lynch's Darktrace infosec biz.…</p>"
+      },
+      {
+        "id": "tag:theregister.co.uk,2005:story206891",
+        "updated": "2020-02-07T12:00:13Z",
+        "author": {
+          "name": "Richard Speed",
+          "uri": "https://search.theregister.co.uk/?author=Richard%20Speed"
+        },
+        "link": {
+          "@attributes": {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://go.theregister.co.uk/feed/www.theregister.co.uk/2020/02/07/five_guys_windows_7/"
+          }
+        },
+        "title": "Come to Five Guys, where the software is as fresh as the burgers... or maybe not",
+        "summary": "<h4>French terminal flashes sous-vêtements at Paris patty punters</h4> <p><strong>Bork!Bork!Bork!</strong>  Welcome to another instalment in our occasional series of software being poorly where it really shouldn't. Today it is Five Guys, where the burgers are fresh, but the software less so……</p>"
+      }
+    ]
+  }
+}
