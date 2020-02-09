@@ -51,6 +51,7 @@ function FrequentWordComponent(frequentWord: FrequentWord) {
         avatar={<Avatar>{frequentWord.count}</Avatar>}
         label={frequentWord.word}
         style={{margin: '5px'}}
+        data-cy="frequent-word"
     />
 }
 
