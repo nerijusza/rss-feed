@@ -23,17 +23,27 @@ https://en.wikipedia.org/wiki/Most_common_words_in_English)
 * Frontend implemented as SPA using React
 * API implemented in PHP with Symfony 5.0
 * Auth implemented using [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token)
-# Possible future improvements
-* Add tests (Symfony tested) to React application
-* Add global Exception handler in Symfony to return friendly JSON response
-# API (Symfony)
-## Testing
-* Unit test: `docker-compose exec php bin/phpunit`
-* Functional tests (controllers): `docker-compose exec php bin/phpunit tests/Controller`
-* All tests: `docker-compose exec php bin/phpunit tests`
+# Testing
+### Requirement
+* Application should be running
 
-## Private and Public keys
+### Run all (Symfony and React) tests
+>./run-all-tests.sh
+### Run React Cypress E2E tests
+> docker run -it -v $PWD/front:/e2e -w /e2e cypress/included:4.0.0 --config baseUrl=http://host.docker.internal:3000
+
+If you have node installed locally, can use GUI
+> cd front && npx cypress open 
+### Run Symfony tests
+#### All tests
+> docker-compose exec php bin/phpunit tests
+#### Only Unit test
+> docker-compose exec php bin/phpunit
+#### Only functional tests (controllers)
+> docker-compose exec php bin/phpunit tests/Controller
+# Private and Public keys
 For simplicity private and public keys (for generating GWT token) are added to repository. To generate new:
+* `cd api`
 * `openssl genrsa -out config/jwt/private.pem -aes256 4096`
 * `openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem`
 * Update `JWT_PASSPHRASE` in `.env` file.
