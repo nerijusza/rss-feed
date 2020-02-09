@@ -18,9 +18,6 @@ do
    sleep 3
 done
 
-echo "Loading dummy (unit test) data.."
-bin/console doctrine:fixtures:load
-
 echo "========================"
 echo "Symfony setup finished!"
 echo "========================"
